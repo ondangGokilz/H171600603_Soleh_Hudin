@@ -61,6 +61,26 @@
                             </div>
                         </div>
 
+
+<div class="form-group row{{ $errors->has('captcha') ? ' has-error' : '' }}">
+        <label for="password" class="col-md-4 col-form-label text-md-right">Captcha</label>
+        <div class="col-md-6">
+
+    <div class="captcha">
+    <span>{!! captcha_img() !!}</span>
+    <button type="button" class="btn btn-success btn-refresh">Refresh</button>
+    </div>
+    <input id="captcha" type="text" class="form-control" placeholder="Enter Captcha" name="captcha">
+    @if ($errors->has('captcha'))
+    {{ __('gagal') }}
+        <span class="help-block">
+            <strong>{{ $errors->first('captcha') }}</strong>
+        </span>
+    @endif
+</div>
+</div>
+
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
